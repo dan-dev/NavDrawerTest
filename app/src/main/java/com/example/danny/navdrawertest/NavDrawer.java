@@ -27,7 +27,7 @@ public class NavDrawer extends AppCompatActivity
         BlankFragment frg = new BlankFragment();
         android.support.v4.app.FragmentTransaction fragTrans =
                 getSupportFragmentManager().beginTransaction();
-        fragTrans.replace(R.id.fragment_container, frg).addToBackStack(null).commit();
+        fragTrans.replace(R.id.fragment_container, frg).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,7 +67,6 @@ public class NavDrawer extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -78,17 +77,21 @@ public class NavDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            BlankFragment fragment = new BlankFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
         } else if (id == R.id.nav_gallery) {
-
             Blank2Fragment fragment = new Blank2Fragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
             Log.d("","works");
-
         } else if (id == R.id.nav_slideshow) {
-
+            SearchFragment fragment = new SearchFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -96,7 +99,6 @@ public class NavDrawer extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
