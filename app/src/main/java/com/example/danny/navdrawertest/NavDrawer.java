@@ -75,7 +75,7 @@ public class NavDrawer extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+            
         if (id == R.id.nav_camera) {
             BlankFragment fragment = new BlankFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
